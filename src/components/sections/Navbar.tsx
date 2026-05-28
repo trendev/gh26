@@ -20,18 +20,21 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-border">
       <Container>
-        <div className="flex h-16 items-center justify-between gap-4 lg:h-20">
+        <div className="flex h-20 items-center justify-between gap-3 lg:h-24">
           <a href="#accueil" className="flex items-center gap-3" aria-label="Accueil GH26">
             <img
               src={brand.logoSrc}
               alt={brand.logoAlt}
-              width={40}
-              height={40}
-              className="h-10 w-10 object-contain"
+              width={80}
+              height={80}
+              className="h-16 w-16 object-contain lg:h-20 lg:w-20"
             />
             <span className="flex flex-col leading-tight">
-              <span className="text-[18px] font-bold text-navy">{brand.name}</span>
-              <span className="text-[10px] font-semibold tracking-[0.15em] text-azure">
+              <span className="text-[18px] font-bold text-navy lg:text-[20px]">
+                {brand.name}
+              </span>
+              {/* Baseline cachée sur très petits écrans pour libérer la barre */}
+              <span className="hidden text-[10px] font-semibold tracking-[0.15em] text-azure sm:block">
                 {brand.tagline}
               </span>
             </span>
@@ -50,8 +53,14 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <ButtonLink href="#contact" variant="primary">
-              Demander un devis
+            {/* Libellé court sur mobile pour éviter le wrap dans la barre étroite */}
+            <ButtonLink
+              href="#contact"
+              variant="primary"
+              className="whitespace-nowrap"
+            >
+              <span className="lg:hidden">Devis</span>
+              <span className="hidden lg:inline">Demander un devis</span>
             </ButtonLink>
             <button
               type="button"

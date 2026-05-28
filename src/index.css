@@ -5,7 +5,7 @@
 /* Smooth scroll + offset pour la navbar fixe (haut de page lors d'un saut d'ancre) */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 96px;
   -webkit-text-size-adjust: 100%;
 }
 
