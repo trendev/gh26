@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth scroll + offset pour la navbar fixe (haut de page lors d'un saut d'ancre) */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+/* Respect des préférences d'accessibilité utilisateur */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible cohérent (couleur azure) */
+:focus-visible {
+  outline: 2px solid #1e73e0;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
